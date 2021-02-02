@@ -1,0 +1,30 @@
+<%- include("./partials/header") %> 
+
+<div class="bg-dark w-100 h-100" >
+<h1 class="text-primary">Online weather</h1>
+
+<form action="/location" method="post">
+    <div class="form-inline">
+<input class="form-control" name="location" type="text" placeholder="location" required>
+    <button class="btn btn-success" type="submit"> Search </button>
+</div>
+</form>
+<div class="containerh">
+<% if (typeof data != 'undefined'){%>
+    <div class="shadow-lg  bg-white rounded">
+<ul>
+    <li> location: <%=data.name%> </li>
+    <li> outside: <%=data.weather[0].description%>
+    <img src="http://openweathermap.org/img/w/<%=data.weather[0].icon%>.png">
+    </li>
+    <li> wind: <%=data.wind.speed%> miles/hour </li>
+    <li> humidity:: <%=data.main.humidity%>%</li>
+    <li> temperature: <%=Math.round(data.main.temp-273.15)%>°C</li>
+    <li> pressure: <%=data.main.pressure%> Pa</li>
+</ul>
+</div>
+<%}%>
+</div>
+</div>
+
+<%- include("./partials/footer") %> 

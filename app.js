@@ -26,7 +26,6 @@ app.post("/location",function(req,res){
                res.redirect("/");
            }
 		  res.render("index",{data:data})
-           //console.log(data)
 	   }
 	   else{
 		  console.log(error)
